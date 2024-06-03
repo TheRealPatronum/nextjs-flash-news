@@ -1,12 +1,11 @@
-'use client'
 import { Article } from '@/app/types/article-type'
 import Image from 'next/image'
 import Link from 'next/link'
 import defaultNewsPng from '@/public/default-news.png'
 import { CATEGORIES_ITEMS } from '../constant'
 import { useState } from 'react'
+import { ImageWithFallback } from '../ImageWithFallback/ImageWithFallback'
 export function ArticleCard(p: { article: Article }) {
-  const [imgSrc, setImgSrc] = useState(p.article.image_url)
   return (
     <Link
       href="#"
@@ -30,15 +29,13 @@ export function ArticleCard(p: { article: Article }) {
         {/* Title*/}
         <div className="font-semibold text-xl line-clamp-2 h-14">{p.article.title}</div>
         {/* Article image*/}
-        <Image
-          className="h-40"
+        <ImageWithFallback
+          className="h-40 rounded-lg"
           height={200}
           width={300}
-          src={imgSrc || defaultNewsPng}
+          src={p.article.image_url || defaultNewsPng}
           alt="Image for article"
-          onError={() => {
-            setImgSrc(defaultNewsPng.src)
-          }}
+          fallback={defaultNewsPng}
         />
       </div>
     </Link>
