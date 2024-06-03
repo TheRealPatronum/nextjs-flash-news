@@ -1,9 +1,12 @@
+'use client'
 import { Article } from '@/app/types/article-type'
 import Image from 'next/image'
 import Link from 'next/link'
 import defaultNewsPng from '@/public/default-news.png'
 import { CATEGORIES_ITEMS } from '../constant'
+import { useState } from 'react'
 export function ArticleCard(p: { article: Article }) {
+  const [imgSrc, setImgSrc] = useState(p.article.image_url)
   return (
     <Link
       href="#"
@@ -31,8 +34,11 @@ export function ArticleCard(p: { article: Article }) {
           className="h-40"
           height={200}
           width={300}
-          src={p.article.image_url || defaultNewsPng}
+          src={imgSrc || defaultNewsPng}
           alt="Image for article"
+          onError={() => {
+            setImgSrc(defaultNewsPng.src)
+          }}
         />
       </div>
     </Link>
