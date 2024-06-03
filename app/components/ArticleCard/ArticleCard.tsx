@@ -2,9 +2,9 @@ import { Article } from '@/app/types/article-type'
 import Image from 'next/image'
 import Link from 'next/link'
 import defaultNewsPng from '@/public/default-news.png'
-import { CATEGORIES_ITEMS } from '../constant'
-import { useState } from 'react'
+
 import { ImageWithFallback } from '../ImageWithFallback/ImageWithFallback'
+import { CATEGORIES_ITEMS } from '@/app/constant'
 export function ArticleCard(p: { article: Article }) {
   return (
     <Link
