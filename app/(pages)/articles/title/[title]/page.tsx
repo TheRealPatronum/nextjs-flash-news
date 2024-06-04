@@ -4,18 +4,27 @@ import { CATEGORIES_ITEMS } from '@/app/constant'
 import Image from 'next/image'
 import defaultNewsPng from '@/public/default-news.png'
 import Link from 'next/link'
-export default async function ArticleDetailPage(p: { params: { title: string } }) {
+
+export default async function ArticleDetailPage(
+  p: Readonly<{ params: { title: string } }>,
+) {
   const article = await ArticleApi.fetchByTitle(p.params.title)
   const category = article.category[0]
   const header = (
     <div className="space-y-2">
       <div className="text-md capitalize flex items-center gap-2">
         <div className="flex justify-center items-center border border-slate-300 rounded-full w-10 h-10">
-          <Image className="w-7 h-7" alt={'Icon for ' + category} src={CATEGORIES_ITEMS[category].src} />
+          <Image
+            className="w-7 h-7"
+            alt={'Icon for ' + category}
+            src={CATEGORIES_ITEMS[category].src}
+          />
         </div>
         <div className="font-semibold">{category}</div>
       </div>
-      <div className="text-xs text-slate-500">Published {new Date(article.pubDate).toDateString()}</div>
+      <div className="text-xs text-slate-500">
+        Published {new Date(article.pubDate).toDateString()}
+      </div>
     </div>
   )
   const body = (
