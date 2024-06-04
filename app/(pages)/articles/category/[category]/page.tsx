@@ -1,6 +1,5 @@
 import { ArticleApi } from '@/app/api/article-api'
 import { ArticleList } from '@/app/components/ArticleList/ArticleList'
-import { NAV_ITEMS } from '@/app/constant'
 import { CATEGORIES_ITEMS } from '@/app/constant'
 import { ArticleCategory } from '@/app/types/article-type'
 import Image from 'next/image'
