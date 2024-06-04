@@ -23,7 +23,7 @@ export default async function ArticlesByCategoryPage(p: { params: { category: Ar
     <div>
       <div className="flex items-center space-x-4 mb-16">
         <Image src={CATEGORIES_ITEMS[p.params.category].src} className="h-10 w-10" alt="Latest news icon" />
-        <h1 className="text-4xl font-bold capitalize">{p.params.category} news</h1>
+        <h1>{p.params.category} news</h1>
       </div>
       <ArticleList articles={articles} />
     </div>

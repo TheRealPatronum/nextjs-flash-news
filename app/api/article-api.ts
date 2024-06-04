@@ -18,13 +18,13 @@ export class ArticleApi {
     ).results;
     
   }
-  static async fetchByTitle(title: string): Promise<Article[]> {    
+  static async fetchByTitle(title: string): Promise<Article> {    
     const formatedTitle = title.replace("/:/g", "")
     return (      
       (await (        
         await fetch(`${process.env.API_BASE_URL}?title=${formatedTitle}`)
       ).json()) as ArticleListResponse
-    ).results;
+    ).results[0];
     
   }
 }
