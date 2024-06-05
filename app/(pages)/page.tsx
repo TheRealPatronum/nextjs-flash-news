@@ -1,11 +1,19 @@
-import { LatestNews } from '../components/LatestNews/LatestNews'
-import { CryptoNews } from '../components/CryptoNews/CryptoNews.server'
+import { LatestNews, LatestNewsSkel } from '../components/LatestNews/LatestNews'
+import {
+  CryptoNews,
+  CryptoNewsSkel,
+} from '../components/CryptoNews/CryptoNews.server'
+import { Suspense } from 'react'
 
 export default function IndexPage() {
   return (
     <div className="flex justify-between">
-      <LatestNews />
-      <CryptoNews />
+      <Suspense fallback={<LatestNewsSkel />}>
+        <LatestNews />
+      </Suspense>
+      <Suspense fallback={<CryptoNewsSkel />}>
+        <CryptoNews />
+      </Suspense>
     </div>
   )
 }
