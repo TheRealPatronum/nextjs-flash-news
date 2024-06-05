@@ -13,7 +13,9 @@ export default function RootLayout({
 }) {
   return (
     <div className="p-8">
-      <ClockNoSSR />
+      <div className="h-12">
+        <ClockNoSSR />
+      </div>
       <div className="flex">
         <Nav />
         <div className="mt-16 pl-8 w-full">{children}</div>

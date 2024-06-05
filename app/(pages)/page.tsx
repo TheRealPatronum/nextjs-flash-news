@@ -1,5 +1,5 @@
-import { CryptoNews } from '../components/CryptoNews/CryptoNews'
 import { LatestNews } from '../components/LatestNews/LatestNews'
+import { CryptoNews } from '../components/CryptoNews/CryptoNews.server'
 
 export default function IndexPage() {
   return (
