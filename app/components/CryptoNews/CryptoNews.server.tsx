@@ -8,7 +8,7 @@ export async function CryptoNews(p: {}) {
 
 export const CryptoNewsSkel = () => {
   return (
-    <div>
+    <div className="p-2 mt-1">
       <Skeleton height={28} width={140} count={1} className="mb-16" />
       <Skeleton height={108} width={320} count={1} />
     </div>

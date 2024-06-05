@@ -30,7 +30,7 @@ export function CryptoNews(p: { initialData: CryptoItem }) {
   }
   return (
     crypto && (
-      <div>
+      <div className="p-2 mt-1">
         <div className="flex items-center space-x-4 mb-16">
           <h2 className="text-xl font-bold">
             <span className="animate-pulse">🔴</span> Crypto news
